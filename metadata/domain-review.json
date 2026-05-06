@@ -1,0 +1,73 @@
+{
+  "repo": "silver-rel-canary-yard",
+  "language": "Solidity",
+  "category": "Reliability",
+  "goal": "Develop a Solidity command-oriented project for canary scenarios with fixture event logs, golden state snapshots, and bounded memory input sets.",
+  "review_model": {
+    "terms": [
+      "budget pressure",
+      "failure width",
+      "recovery gap",
+      "runbook drift"
+    ],
+    "lanes": [
+      "ship",
+      "watch",
+      "hold"
+    ],
+    "score": "signal * 2 + slack + confidence - drag * 3",
+    "purpose": "surface the domain-specific cases that need the most careful review"
+  },
+  "cases": [
+    {
+      "name": "baseline",
+      "focus": "budget pressure",
+      "signal": 52,
+      "slack": 47,
+      "drag": 31,
+      "confidence": 84,
+      "score": 142,
+      "lane": "ship"
+    },
+    {
+      "name": "stress",
+      "focus": "failure width",
+      "signal": 80,
+      "slack": 54,
+      "drag": 11,
+      "confidence": 79,
+      "score": 260,
+      "lane": "ship"
+    },
+    {
+      "name": "edge",
+      "focus": "recovery gap",
+      "signal": 71,
+      "slack": 41,
+      "drag": 16,
+      "confidence": 78,
+      "score": 213,
+      "lane": "ship"
+    },
+    {
+      "name": "recovery",
+      "focus": "runbook drift",
+      "signal": 67,
+      "slack": 32,
+      "drag": 15,
+      "confidence": 53,
+      "score": 174,
+      "lane": "ship"
+    },
+    {
+      "name": "stale",
+      "focus": "budget pressure",
+      "signal": 69,
+      "slack": 31,
+      "drag": 11,
+      "confidence": 59,
+      "score": 195,
+      "lane": "ship"
+    }
+  ]
+}
